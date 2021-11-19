@@ -1,0 +1,41 @@
+﻿
+@if (section != null)
+{
+    <div class="about-team-section">
+        <div class="team-head-section">
+            @if (section.TitleH != null)
+            {
+                <h2>@(section.TitleH)</h2>
+            }
+            @if (section.Description != null)
+            {
+                <p>@(section.Description)</p>
+            }
+        </div>
+        <div class="team-content">
+            @foreach (GroupMBPageOurTeamEmployees employees in section.Employees)
+            {
+                <div class="team-details">
+                    @if (employees.Image != null)
+                    {
+                        <ImageComponent asset=@(employees.Image) />
+                    }
+                <div class="team-details">
+                    @if (employees.Name != null)
+                    {
+                        <h3>@employees.Name</h3>
+                    }
+                    @if (employees.Designation != null)
+                    {
+                        <p>@employees.Designation</p>
+                    }
+                </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+@code {
+    [Parameter]
+    public MBPageOurTeam section { get; set; }
+}

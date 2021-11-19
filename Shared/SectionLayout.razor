@@ -1,0 +1,17 @@
+﻿<div class="home-advisor-section">
+    @if (section.ImageAlignment == "Left")
+    {
+        <ImageComponent asset=section.Image />
+        <SectionContents section=@(section) />
+    }
+    else
+    {
+        <SectionContents section=@(section) />
+        <ImageComponent asset=section.Image />
+    }
+</div>
+
+@code {
+    [Parameter]
+    public MBPageSection section { get; set; }
+}

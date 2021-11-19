@@ -1,0 +1,40 @@
+﻿
+/* blog list */
+
+.blog-page-banner {
+    background: #715cdd;
+    text-align: center;
+}
+
+.blog-page-content {
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 482px;
+    padding: 58px 0px 58px 0px;
+}
+
+
+
+/* ========================== */
+
+/*          Mobile            */
+
+/* ========================== */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .blog-page-content {
+        color: #fff;
+        text-align: left;
+        width: 90%;
+    }
+}
+
+/* ========================== */
+
+/*          Tablet            */
+
+/* ========================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+}

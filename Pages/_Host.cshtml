@@ -1,0 +1,41 @@
+﻿@page "/"
+@namespace contentstack_dotnet_starter_app.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta data-n-head="ssr" data-hid="description" name="description" content="A simple starter app build using .Net and Contentstack">
+    <link href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap"
+          rel="stylesheet" />
+    <title>contentstack-dotnet-starter-app</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/third-party.css" />
+    <link href="contentstack-dotnet-starter-app.styles.css" rel="stylesheet" />
+    <link href="manifest.json" rel="manifest" />
+    <meta name="theme-color" content="#715cdd">
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+</head>
+<body>
+    <component type="typeof(App)" render-mode="ServerPrerendered" />
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+    </div>
+
+    <script src="_framework/blazor.server.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+</body>
+</html>

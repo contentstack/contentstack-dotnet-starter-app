@@ -1,0 +1,81 @@
+﻿@page "/blog"
+
+@inject PageService PageService
+@inject BlogService BlogService
+
+@if (page != null)
+{
+    <ComponentsLayout components=page.PageComponents isBlogPage=true></ComponentsLayout>
+}
+
+<div class="blog-container">
+    <div class="blog-column-left">
+        @if (blogs != null)
+        {
+            @foreach (BlogEntry blog in blogs)
+            {
+                <div class="blog-list">
+                    @if (blog.FeaturedImage != null)
+                    {
+                        <a href=@(blog.Url)>
+                            <ImageComponent asset=blog.FeaturedImage className="blog-list-img" />
+                        </a>
+                    }
+
+                    <div class="blog-content">
+                        @if (blog.Title != null)
+                        {
+                            <a href=@blog.Url>
+                                <h3>@blog.Title</h3>
+                            </a>
+                        }
+
+                        <p>
+                            @blog.Date.ToString("ddd, MMM d yyyy")
+                            ,
+                             
+                            <strong>@(blog.Author[0].Title)</strong>
+                        </p>
+                        @if (blog.Body != null)
+                        {
+                            @((MarkupString)blog.Body.Substring(0, 300))
+                            <a href=@blog.Url>
+                                <span>Read more --></span>
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="blog-column-right">
+        @if (page != null && page.PageComponents.Count() > 1 && ((MBPageWidget)(page.PageComponents[1])).TitleH != null)
+        {
+            <h2>
+                @(((MBPageWidget)(page.PageComponents[1])).TitleH)
+
+            </h2>
+        }
+        <ArchiveRelative blogs=@(archive) />
+    </div>
+</div>
+@code {
+    Page page;
+    List<BlogEntry> archive;
+    List<BlogEntry> blogs;
+    protected override async Task OnInitializedAsync()
+    {
+        var collection = await PageService.GetPageAsync("/blog");
+        page = collection.Items.First();
+        var blogCollection = await BlogService.GetBlogAsync(references: new string[] { "author" });
+        archive = blogCollection.Items.Where((entry) =>
+        {
+            return entry.IsArchived;
+        }).ToList();
+
+        blogs = blogCollection.Where((entry) =>
+        {
+            return !entry.IsArchived;
+        }).ToList();
+    }
+}

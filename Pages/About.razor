@@ -1,0 +1,21 @@
+﻿@page "/about-us"
+
+
+@inject PageService PageService
+
+@if (page != null)
+{
+    <ComponentsLayout components=page.PageComponents isAboutPage=true></ComponentsLayout>
+
+}
+
+
+@code {
+    Page page;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var collection = await PageService.GetPageAsync("/about-us");
+        page = collection.Items.First();
+    }
+}

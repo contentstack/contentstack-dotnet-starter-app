@@ -1,0 +1,58 @@
+﻿.home-advisor-section {
+    background: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 21px;
+    margin: 63px;
+    flex-wrap: wrap;
+}
+
+
+/* ========================== */
+
+/*          Mobile            */
+
+/* ========================== */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+    .home-advisor-section {
+        background: #fff;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: left;
+        padding: 28px;
+        margin: 0;
+        flex-wrap: wrap-reverse;
+    }
+
+    .home-advisor-section > img {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+}
+
+
+
+/* ========================== */
+
+/*          Tablet            */
+
+/* ========================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .home-advisor-section {
+        background: #fff;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        margin: 80px 63px 63px 63px;
+        flex-wrap: nowrap;
+    }
+
+        .home-advisor-section > img {
+            width: 50%;
+        }
+}

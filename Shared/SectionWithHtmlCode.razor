@@ -1,0 +1,50 @@
+﻿
+@if (section.HtmlCodeAlignment == "Left")
+{
+    <div class="contact-page-section max-width">
+        <div class="contact-page-content">
+            @if (section.Title != null)
+            {
+                <h1>@(section.Title)</h1>
+            }
+            @if (section.Description != null)
+            {
+                @((MarkupString)section.Description)
+
+            }
+        </div>
+        <div class="contact-page-form">
+            @if (section.HtmlCode != null)
+            {
+                @((MarkupString)section.HtmlCode)
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="contact-maps-section max-width">
+        <div class="maps-details">
+            @if (section.HtmlCode != null)
+            {
+                @((MarkupString)section.HtmlCode)
+            }
+        </div>
+        <div class="contact-maps-content">
+            @if (section.Title != null)
+            {
+                <h1>@(section.Title)</h1>
+            }
+            @if (section.Description != null)
+            {
+                @((MarkupString)section.Description)
+
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public MBPageSectionWithHTMLCode section { get; set; }
+}

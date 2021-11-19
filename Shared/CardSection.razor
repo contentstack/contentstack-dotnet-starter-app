@@ -1,0 +1,32 @@
+﻿@if (section != null)
+{
+    <div class="demo-section">
+        @foreach (GroupMBPageSectionWithCardsCards cards in section.Cards)
+        {
+            <div class="cards">
+                @if (cards.TitleH != null)
+                {
+                    <h3>@(cards.TitleH)</h3>
+                }
+                @if (cards.Description != null)
+                {
+                    <p>@(cards.Description)</p>
+                }
+                <div class="card-cta">
+                    @if (cards.CallToAction.Title != null && cards.CallToAction.Href != null)
+                    {
+                        <a class="btn primary-btn" href=@(cards.CallToAction.Href)>@(cards.CallToAction.Title)</a>
+                    }
+                
+                </div>
+            </div>
+        }
+
+</div>
+}
+
+
+@code {
+    [Parameter]
+    public MBPageSectionWithCards section { get; set; }
+}

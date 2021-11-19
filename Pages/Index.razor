@@ -1,0 +1,21 @@
+@page "/"
+
+
+@inject PageService PageService
+
+@if (page != null)
+{
+    <ComponentsLayout components=page.PageComponents></ComponentsLayout>
+}
+
+
+@code {
+    Page page;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var collection = await PageService.GetPageAsync("/", "page_components.from_blog.featured_blogs");
+        Console.WriteLine(collection.Items.Count());
+        page = collection.Items.First();
+    }
+}

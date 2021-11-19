@@ -1,0 +1,159 @@
+﻿
+.contact-form {
+    width: 100%;
+    background: #f7f7f7;
+    height: 400px;
+}
+
+.contact-page-section, .contact-maps-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 45px 0;
+}
+
+.contact-page-content {
+    width: 50%;
+    padding-top: 0px;
+    padding-right: 80px;
+}
+
+.contact-page-form {
+    width: 50%;
+}
+
+.contact-maps-content {
+    width: 50%;
+}
+
+.contact-page-content > h2 {
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 56px;
+}
+
+.contact-page-content > p {
+    font-size: 16px;
+    color: #737b7d;
+}
+
+
+.contact-maps-content {
+    margin-top: 70px;
+}
+
+.contact-page-section, .contact-maps-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 45px 0;
+}
+
+
+::deep .input-fields, ::deep .text-field {
+    margin-bottom: 30px;
+}
+
+    ::deep .input-fields input {
+        width: 100%;
+        background-color: #f3f3f3;
+        padding: 16px 15px;
+        border: none;
+    }
+
+::deep .text-field input {
+    width: 100%;
+    height: 120px;
+    background-color: #f3f3f3;
+    padding: 25px 15px;
+    border: none;
+}
+
+
+
+::deep .maps-details {
+    width: 50%;
+}
+
+    ::deep .maps-details img {
+        max-width: 100%;
+    }
+
+/* ========================== */
+
+/*          Mobile            */
+
+/* ========================== */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+    .contact-page-content {
+        width: auto;
+        padding: 55px 0;
+        text-align: left;
+    }
+
+    .contact-page-form {
+        width: 100%;
+    }
+
+    .contact-page-section, .contact-maps-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 45px 0;
+    }
+
+    .maps-details {
+        width: auto;
+    }
+
+    .contact-maps-content {
+        width: auto;
+    }
+
+    .maps-details {
+        overflow: hidden;
+    }
+}
+
+/* ========================== */
+
+/*          Tablet            */
+
+/* ========================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .contact-maps-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 45px 0;
+    }
+
+    .contact-page-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 45px 0;
+    }
+
+    .maps-details > img {
+        max-width: 100%;
+    }
+
+    .maps-details {
+        width: 50%;
+    }
+
+    .contact-maps-content {
+        width: 50%;
+        padding: 0px 47px 1px 52px;
+        margin-top: 0;
+    }
+
+    .contact-page-section p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}

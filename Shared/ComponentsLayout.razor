@@ -1,0 +1,50 @@
+﻿
+@foreach (MBPagePageComponents pageComponents in components)
+{
+    switch (pageComponents.BlockType)
+    {
+        case MBPagePageComponentsEnum.HeroBanner:
+            if (isBlogPage)
+            {
+                <BlogBannerLayout banner=@(pageComponents as MBPageHeroBanner) />
+            }
+            else
+            {
+                <HeroBannerLayout banner=@(pageComponents as MBPageHeroBanner) title="@(isAboutPage? "about": "hero")"/>
+            }
+            break;
+        case MBPagePageComponentsEnum.ContactDetails:
+            
+            break;
+        case MBPagePageComponentsEnum.Section:
+            <SectionLayout section=@(pageComponents as MBPageSection) />
+            break;
+        case MBPagePageComponentsEnum.FromBlog:
+            <BlogSection section=@(pageComponents as MBPageFromBlog) />
+            break;
+        case MBPagePageComponentsEnum.SectionWithCards:
+            <CardSection section=@(pageComponents as MBPageSectionWithCards) />
+            break;
+        case MBPagePageComponentsEnum.SectionWithHtmlCode:
+            <SectionWithHtmlCode section=@(pageComponents as MBPageSectionWithHTMLCode) />
+            break;
+        case MBPagePageComponentsEnum.OurTeam:
+            <TeamSection section=@(pageComponents as MBPageOurTeam) />
+            break;
+        case MBPagePageComponentsEnum.SectionWithBuckets:
+            <SectionBucket section=@(pageComponents as MBPageSectionWithBuckets) isAboutPage=@isAboutPage/>
+            break;
+        case MBPagePageComponentsEnum.Widget:
+            
+            break;
+    }
+}
+
+@code {
+    [Parameter]
+    public List<MBPagePageComponents> components { get; set; }
+    [Parameter]
+    public bool isBlogPage { get; set; }
+    [Parameter]
+    public bool isAboutPage { get; set; }
+}

@@ -1,0 +1,32 @@
+﻿<div class="hero-banner"
+     style="background:@(@banner.BgColor)">
+    <div class=@(@title == "about" ? "about-content" : "home-content")>
+        @if (banner.BannerTitle != null)
+        {
+            <h1 class="hero-title">@banner.BannerTitle</h1>
+        }
+
+        @if (banner.BannerDescription != null)
+        {
+            <p class="hero-description @(@title == "about" ? "about-desc" : "" ) ">
+                @banner.BannerDescription
+            </p>
+        }
+
+        @if (banner.CallToAction.Title != null && banner.CallToAction.Href != null)
+        {
+            <a class="btn tertiary-btn" href=@banner.CallToAction.Href>@banner.CallToAction.Title</a>
+        }
+
+    </div>
+    @if (banner.BannerImage != null)
+    {
+        <ImageComponent asset=@banner.BannerImage />
+    }
+</div>
+@code {
+    [Parameter]
+    public MBPageHeroBanner banner { get; set; }
+    [Parameter]
+    public string title { get; set; }
+}

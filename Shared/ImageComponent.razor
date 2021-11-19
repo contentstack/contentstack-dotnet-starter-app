@@ -1,0 +1,10 @@
+﻿
+<img src=@asset.Url alt=@asset.FileName title=@asset.FileName class=@className/>
+
+@code {
+    [Parameter]
+    public Asset asset { get; set; }
+
+    [Parameter]
+    public string className { get; set; }
+}

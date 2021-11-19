@@ -1,0 +1,68 @@
+﻿@page "/blog/{text}"
+@inject PageService PageService
+@inject BlogService BlogService
+
+@if (page != null)
+{
+    <ComponentsLayout components=page.PageComponents isBlogPage=true></ComponentsLayout>
+}
+@if (blog != null)
+{
+
+    <div class="blog-container">
+        <div class="blog-detail">
+            @if (blog.Title != null)
+            {
+                <h2>@(blog.Title)</h2>
+            }
+
+            <p>
+                @(blog.Date.ToString("ddd, MMM d yyyy"))
+                ,
+                 
+                <strong>@(blog.Author[0].Title)</strong>
+            </p>
+            @((MarkupString)blog.Body)
+        </div>
+        <div class="blog-column-right">
+            <div class="related-post">
+                @if (page != null && page.PageComponents.Count() > 2 && ((MBPageWidget)(page.PageComponents[2])).TitleH != null)
+                {
+                    <h2>
+                        @(((MBPageWidget)(page.PageComponents[2])).TitleH)
+
+                    </h2>
+                }
+                <ArchiveRelative blogs=@(blog.RelatedPost) />
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+
+    Page page;
+    BlogEntry blog;
+    protected override async Task OnInitializedAsync()
+    {
+        var collection = await PageService.GetPageAsync("/blog");
+        page = collection.Items.First();
+        var blogCollection = await BlogService.GetBlogAsync($"/blog/{Text}", new string[] { "author", "related_post" });
+        if (blogCollection.Items.Count() > 0)
+        {
+            blog = blogCollection.Items.First();
+        }
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var collection = await PageService.GetPageAsync("/blog");
+        page = collection.Items.First();
+        var blogCollection = await BlogService.GetBlogAsync($"/blog/{Text}", new string[] { "author", "related_post" });
+        if (blogCollection.Items.Count() > 0)
+        {
+            blog = blogCollection.Items.First();
+        }
+    }}

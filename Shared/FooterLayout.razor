@@ -1,0 +1,63 @@
+﻿@inject FooterService FooterService
+
+<footer>
+    @if (footer != null)
+    {
+        <div class="max-width footer-div">
+            <div class="col-quarter">
+                <a href="/" class="logo-tag">
+                    <ImageComponent asset=@footer.Logo className="logo footer-logo" />
+                </a>
+            </div>
+            <div class="col-half">
+                <nav>
+                    <ul class="nav-ul">
+                        @foreach (ContentstackLink link in footer.Navigation.Link)
+                        {
+                            <li class="footer-nav-li" key=@link.Title>
+                                <a href=@link.Href
+                                   title=@link.Title
+                                   key=@link.Title>
+                                    @link.Title
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-quarter social-link">
+                <div class="social-nav">
+                    @foreach (GroupGroupFooterSocialSocialShare shared in footer.Social.SocialShare)
+                    {
+                        if (shared.Icon != null)
+                        {
+                            <a href=@shared.Link.Href
+                               title=@shared.Link.Title
+                               key=@shared.Link.Title>
+                                <ImageComponent asset=@shared.Icon />
+                            </a>
+                        }
+
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            @((MarkupString)footer.Copyright)
+
+        </div>
+    }
+</footer>
+
+
+@code {
+    Footer footer;
+    protected override async Task OnInitializedAsync()
+    {
+        var collection = await FooterService.GetFooterAsync();
+        footer = collection.Items.First();
+    }
+}
+

@@ -1,0 +1,48 @@
+﻿@if (section != null)
+{
+    <div class="community-section">
+        <div class="community-head">
+            @if (section.TitleH != null)
+            {
+                <h2>@(section.TitleH)</h2>
+            }
+            @if (section.ViewArticles != null)
+            {
+                <a class="btn secondary-btn article-btn" href=@(section.ViewArticles.Href)>
+                    @(section.ViewArticles.Title)
+                </a>
+            }
+        </div>
+        <div class="home-featured-blogs">
+            @foreach (BlogEntry blogEntry in section.FeaturedBlogs)
+            {
+                <div class="featured-blog">
+                    @if (blogEntry.FeaturedImage != null)
+                    {
+                        <ImageComponent asset=@blogEntry.FeaturedImage className="blog-post-img" />
+                    }
+
+                    <div class="featured-content">
+                        @if (blogEntry.Title != null)
+                        {
+                            <h3>@(blogEntry.Title)</h3>
+                        }
+                        @if (blogEntry.Body != null)
+                        {
+                            @((MarkupString)blogEntry.Body.Substring(0, 300))
+                        }
+                        @if (blogEntry.Url != null)
+                        {
+                            <a class="blogpost-readmore" href=@blogEntry.Url>Read More --></a>
+                        }
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+@code {
+    [Parameter]
+    public MBPageFromBlog section { get; set; }
+}

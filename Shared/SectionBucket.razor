@@ -1,0 +1,100 @@
+﻿
+
+@if (section != null)
+{
+    <div class="member-main-section">
+        <div class="member-head">
+            @if (section.TitleH != null)
+            {
+                <h2>@(section.TitleH)</h2>
+            }
+        </div>
+        <div class=@(isAboutPage ? "mission-section" : "member-section")>
+
+            @if (isAboutPage)
+            {
+                <div class="mission-content-top">
+                    @foreach (GroupMBPageSectionWithBucketsBuckets buckets in section.Buckets)
+                    {
+                        <div class="mission-content-section">
+                            @if (buckets.Icon != null)
+                            {
+                                <ImageComponent className="mission-icon" asset=@buckets.Icon />
+                            }
+                            <div class="mission-section-content">
+                                @if (buckets.TitleH != null)
+                                {
+                                    <h3>@(buckets.TitleH)</h3>
+                                }
+                                @if (buckets.Description != null)
+                                {
+                                    @((MarkupString)section.Description)
+                                }
+                            </div>
+                        </div>
+                        @if (section.Buckets.IndexOf(buckets) == 1)
+                        {
+                            break;
+                        }
+                    }
+                </div>
+                <div class="mission-content-bottom">
+                    @foreach (GroupMBPageSectionWithBucketsBuckets buckets in section.Buckets)
+                    {
+                        @if (section.Buckets.IndexOf(buckets) < 2)
+                        {
+                            continue;
+                        }
+                        <div class="mission-content-section">
+                            @if (buckets.Icon != null)
+                            {
+                                <ImageComponent className="mission-icon" asset=@buckets.Icon />
+                            }
+                            <div class="mission-section-content">
+                                @if (buckets.TitleH != null)
+                                {
+                                    <h3>@(buckets.TitleH)</h3>
+                                }
+                                @if (buckets.Description != null)
+                                {
+                                    @((MarkupString)section.Description)
+                                }
+                            </div>
+                        </div>
+                    }
+                </div> }
+            else
+            {
+                @foreach (GroupMBPageSectionWithBucketsBuckets buckets in section.Buckets)
+                {
+                    <div class="content-section">
+                        @if (buckets.Icon != null)
+                        {
+                            <ImageComponent asset=@buckets.Icon />
+
+                        }
+                        @if (buckets.TitleH != null)
+                        {
+                            <h3>@(buckets.TitleH)</h3>
+                        }
+                        @if (buckets.Description != null)
+                        {
+                            @((MarkupString)section.Description)
+                        }
+                        @if (buckets.CallToAction.Title != null)
+                        {
+                            <a href=@(buckets.CallToAction.Href != null ? buckets.CallToAction.Href : "")>@(buckets.CallToAction.Title)</a>
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public MBPageSectionWithBuckets section { get; set; }
+    [Parameter]
+    public bool isAboutPage { get; set; }
+}

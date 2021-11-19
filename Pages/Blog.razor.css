@@ -1,0 +1,132 @@
+﻿
+
+.blog-column-left {
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+}
+
+.blog-column-left {
+    width: 690px;
+}
+
+
+    .blog-column-left .blog-content a {
+        color: #715cdd;
+    }
+
+
+.blog-list {
+    display: flex;
+    border: 2px solid #dacccc33;
+    border-radius: 3px;
+    margin-bottom: 12px;
+}
+
+    .blog-list > a {
+        text-align: center;
+        width: 40%;
+        background: #efefef;
+        display: inline-flex;
+    }
+
+::deep .blog-list-img {
+    max-width: 100%;
+}
+::deep .blog-list-img {
+    margin: auto;
+}
+.blog-content h3 {
+    color: #222222;
+}
+
+.blog-content {
+    width: 60%;
+    padding: 15px;
+}
+/* ========================== */
+
+/*          Mobile            */
+
+/* ========================== */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+   
+    .blog-column-left {
+        padding: 0;
+    }
+   
+
+    .blog-list > img {
+        max-width: 100%;
+    }
+
+    ::deep .blog-list-img {
+        margin: auto;
+    }
+
+    .blog-list > a {
+        width: 100%;
+    }
+
+
+    .blog-list {
+        display: contents;
+    }
+
+    .blog-list {
+        display: block;
+        border: 2px solid #dacccc33;
+        border-radius: 3px;
+        margin-bottom: 12px;
+    }
+
+    .blog-content {
+        width: auto;
+    }
+
+
+    ::deep .blog-list-img {
+        max-width: 100%;
+    }
+
+}
+
+/* ========================== */
+
+/*          Tablet            */
+
+/* ========================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    .blog-column-left {
+        width: 65%;
+        padding: 30px;
+    }
+    
+    ::deep .blog-list-img {
+        max-width: 100%;
+    }
+
+    .blog-list > a {
+        text-align: center;
+        background: #f2f2f2;
+        display: block;
+        width: 100%;
+    }
+    .blog-list {
+        display: block;
+        border: 2px solid #dacccc33;
+        border-radius: 3px;
+        margin-bottom: 12px;
+    }
+
+    .blog-content {
+        width: 100%;
+    }
+
+    ::deep .blog-list-img {
+        max-width: 100%;
+    }
+}

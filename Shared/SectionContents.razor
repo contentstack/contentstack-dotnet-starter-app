@@ -1,0 +1,18 @@
+﻿<div class="home-content">
+    @if (section.TitleH != null)
+    {
+        <h2>@(section.TitleH)</h2>
+    }
+    @if (section.Description != null)
+    {
+        <p>@(section.Description)</p>
+    }
+    @if (section.CallToAction.Title != null && section.CallToAction.Href != null)
+    {
+        <a href=@(section.CallToAction.Href) class="btn secondary-btn">@(section.CallToAction.Title)</a>
+    }
+</div>
+@code {
+    [Parameter]
+    public MBPageSection section { get; set; }
+}

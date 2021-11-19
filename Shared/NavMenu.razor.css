@@ -1,0 +1,204 @@
+
+.note-div {
+    background: #f2efff;
+}
+
+    .note-div p {
+        margin: 0 auto;
+        text-align: center;
+        padding: 5px 0;
+        color: #222222;
+    }
+
+header {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
+
+header .max-width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .wrapper-logo {
+    flex: 0 0 170px;
+    margin: 20px 0;
+}
+
+header .wrapper-logo img {
+    width: 130px;
+}
+
+header nav {
+    flex: 1 1 100%;
+    text-align: right;
+}
+
+.header-div {
+    height: 70px;
+}
+
+.header-ul {
+    overflow: hidden;
+}
+
+::deep .nav-li a:hover, ::deep .nav-li a.active {
+    color: #715cdd;
+}
+
+
+::deep .nav-li a {
+    font-weight: 600;
+}
+
+.header-ul .hamburger-icon {
+    display: none;
+}
+
+.header .menu-btn {
+    display: none;
+}
+
+/* ========================== */
+
+/*          Mobile            */
+
+/* ========================== */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .header {
+        height: 70px;
+        background-color: #fff;
+    }
+
+    .header-div {
+        height: auto;
+    }
+
+    .nav-ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .header ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+    .header li a {
+        display: block;
+        padding: 0 20px;
+        border-right: 1px solid #f4f4f4;
+        text-decoration: none;
+    }
+
+        .header li a:hover, .header .menu-btn:hover {
+            background-color: #f4f4f4;
+        }
+    /* menu */
+    .header .menu {
+        clear: both;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .header .header-div {
+        display: inline-block;
+        width: 100%;
+        background-color: #fff;
+    }
+
+    .header .wrapper-logo {
+        float: left;
+        margin-left: 15px;
+    }
+
+    .menu-icon {
+        float: right;
+        margin-top: 2px;
+    }
+    /* menu icon */
+    .header .menu-icon {
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+    }
+
+        .header .menu-icon .navicon {
+            background: #333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background 0.2s ease-out;
+            width: 18px;
+        }
+
+            .header .menu-icon .navicon:before, .header .menu-icon .navicon:after {
+                background: #333;
+                content: "";
+                display: block;
+                height: 100%;
+                position: absolute;
+                transition: all 0.2s ease-out;
+                width: 100%;
+            }
+
+            .header .menu-icon .navicon:before {
+                top: 5px;
+            }
+
+            .header .menu-icon .navicon:after {
+                top: -5px;
+            }
+
+    .header .menu-btn:checked ~ nav {
+        max-height: 240px;
+        overflow: auto;
+    }
+
+    .header .menu-btn:checked ~ .menu-icon .navicon {
+        background: transparent;
+    }
+
+        .header .menu-btn:checked ~ .menu-icon .navicon:before {
+            transform: rotate(-45deg);
+        }
+
+        .header .menu-btn:checked ~ .menu-icon .navicon:after {
+            transform: rotate(45deg);
+        }
+
+    .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before, .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+        top: 0;
+    }
+
+    nav ul li {
+        padding: 15px 0;
+    }
+}
+
+/* ========================== */
+
+/*          Tablet            */
+
+/* ========================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    header nav {
+        display: block;
+    }
+}

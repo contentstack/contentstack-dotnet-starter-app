@@ -1,0 +1,18 @@
+﻿@page "/contact-us"
+
+@inject PageService PageService
+
+@if (page != null)
+{
+    <ComponentsLayout components=page.PageComponents></ComponentsLayout>
+
+}
+@code {
+    Page page;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var collection = await PageService.GetPageAsync("/contact-us");
+        page = collection.Items.First();
+    }
+}

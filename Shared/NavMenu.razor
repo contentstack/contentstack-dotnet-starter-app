@@ -1,0 +1,43 @@
+﻿@inject HeaderService HeaderService
+
+<header class="header">
+    <div class="note-div"><p>To Our Community: Please read this important update.</p></div>
+    @if (header != null)
+    {
+        <div class="max-width header-div">
+            <div class="wrapper-logo">
+                <a href="/" className="logo-tag">
+                    <ImageComponent className="logo" asset=@header.Logo />
+                </a>
+            </div>
+
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+
+            <label class="menu-icon" for="menu-btn">
+                <span class="navicon" />
+            </label>
+
+            <nav class="menu">
+                <ul class="nav-ul header-ul">
+                    @foreach (GroupHeaderNavigationMenu menu in header.NavigationMenu)
+                    {
+                        <li key=@menu.Label class="nav-li">
+                            <NavLink class="nav-link" href=@menu.PageReference[0].Url Match="NavLinkMatch.All">
+                                @menu.PageReference[0].Title
+                            </NavLink>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+      }
+</header>
+
+@code {
+    Header header;
+    protected override async Task OnInitializedAsync()
+    {
+        var collection = await HeaderService.GetHeaderAsync();
+        header = collection.Items.First();
+    }
+}

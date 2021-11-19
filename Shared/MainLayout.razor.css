@@ -1,0 +1,117 @@
+
+
+.top-section h2, .top-section p {
+    margin: 6px 0;
+    padding: 0;
+}
+
+.copyright {
+    padding: 5px;
+    text-align: center;
+}
+/* button area in contact form */
+
+
+.text-field textarea {
+    width: 550px;
+    height: 120px;
+    background-color: #f3f3f3;
+    padding: 10px 15px;
+    border: none;
+}
+
+/* Blog list section */
+
+/* blog individual page */
+
+
+/* home page */
+
+.card-cta {
+    display: flex;
+    margin-top: auto;
+}
+
+.blog-roll .blog-entry {
+    font-size: 0.9em;
+}
+
+/* New Custom */
+
+
+/* home page ends here */
+
+
+
+.story-advisor-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 35px;
+    padding: 63px;
+}
+
+.story-content {
+    text-align: left;
+    margin-top: 35px;
+    width: 475px;
+}
+
+    .story-content p {
+        margin-bottom: 32px;
+    }
+
+
+.error-page {
+    text-align: center;
+    min-height: 400px;
+    padding-top: 80px;
+}
+
+
+/* ========================== */
+
+/*          Mobile            */
+
+/* ========================== */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .story-advisor-section > img {
+        max-width: 100%;
+    }
+}
+
+/* ========================== */
+
+/*          Tablet            */
+
+/* ========================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .home-advisor-section {
+        background: #fff;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        margin: 80px 63px 63px 63px;
+        flex-wrap: nowrap;
+    }
+
+        .home-advisor-section > img {
+            width: 50%;
+        }
+
+    .mission-content-section {
+        display: block;
+        text-align: center;
+        width: fit-content;
+        padding: 20px;
+    }
+
+    .mission-icon {
+        padding: 0;
+    }
+  
+   
+}
