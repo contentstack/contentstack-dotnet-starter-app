@@ -38,4 +38,3 @@ msbuild.wrn
 
 appsettings**.json
 Properties/**
-.talismanrc
