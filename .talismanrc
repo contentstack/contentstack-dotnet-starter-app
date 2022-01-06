@@ -1,0 +1,5 @@
+fileignoreconfig:
+- filename: Pages/_Host.cshtml
+  checksum: 51511fe434666b989e3ba1bf875594e31fc3c6cd887628221ea59b5ec4ce1f59
+- filename: Startup.cs
+  checksum: fb45aa2eb50306ac526bc089b3221f991e1e7433b2195feae7405d942faa3836
