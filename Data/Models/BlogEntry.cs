@@ -25,7 +25,7 @@ namespace contentstack_dotnet_starter_app.Data.Models
         public DateTime Date { get; set; }
         [JsonProperty(propertyName: "featured_image")]
         public Asset FeaturedImage { get; set; }
-        public string Body { get; set; }
+        public Node Body { get; set; }
         [JsonProperty(propertyName: "related_post")]
         public List<BlogEntry> RelatedPost { get; set; }
         [JsonProperty(propertyName: "is_archived")]

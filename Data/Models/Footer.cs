@@ -23,7 +23,7 @@ namespace contentstack_dotnet_starter_app.Data.Models
         public Asset Logo { get; set; }
         public GroupFooterNavigation Navigation { get; set; }
         public GroupFooterSocial Social { get; set; }
-        public string Copyright { get; set; }
+        public Node Copyright { get; set; }
     }
 }
 

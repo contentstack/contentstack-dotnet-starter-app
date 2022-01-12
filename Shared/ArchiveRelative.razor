@@ -5,7 +5,7 @@
         <a href=@(blog.Url)>
             <div>
                 <h4>@blog.Title</h4>
-                @((MarkupString)blog.Body.Substring(0, 80))
+                @((MarkupString)Contentstack.Utils.Utils.JsonToHtml(blog.Body, options: new Contentstack.Utils.Models.Options()).Substring(0, 80))
             </div>
         </a>
     }

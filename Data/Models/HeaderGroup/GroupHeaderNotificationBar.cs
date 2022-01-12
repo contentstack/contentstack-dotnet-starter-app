@@ -16,7 +16,7 @@ namespace contentstack_dotnet_starter_app.Data.Models.HeaderGroup
     public partial class GroupHeaderNotificationBar
     {
         [JsonProperty(propertyName: "announcement_text")]
-        public string AnnouncementText { get; set; }
+        public Node AnnouncementText { get; set; }
         [JsonProperty(propertyName: "show_announcement")]
         public bool ShowAnnouncement { get; set; }
     }

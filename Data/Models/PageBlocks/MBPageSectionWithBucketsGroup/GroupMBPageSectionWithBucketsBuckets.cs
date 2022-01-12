@@ -17,7 +17,7 @@ namespace contentstack_dotnet_starter_app.Data.Models.PageBlocks.MBPageSectionWi
     {
         [JsonProperty(propertyName: "title_h3")]
         public string TitleH { get; set; }
-        public string Description { get; set; }
+        public Node Description { get; set; }
         public Asset Icon { get; set; }
         [JsonProperty(propertyName: "call_to_action")]
         public ContentstackLink CallToAction { get; set; }

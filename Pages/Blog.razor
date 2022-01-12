@@ -22,28 +22,28 @@
                         </a>
                     }
 
-                    <div class="blog-content">
-                        @if (blog.Title != null)
-                        {
-                            <a href=@blog.Url>
-                                <h3>@blog.Title</h3>
-                            </a>
-                        }
+                <div class="blog-content">
+                    @if (blog.Title != null)
+                    {
+                        <a href=@blog.Url>
+                            <h3>@blog.Title</h3>
+                        </a>
+                    }
 
-                        <p>
-                            @blog.Date.ToString("ddd, MMM d yyyy")
-                            ,
-                             
-                            <strong>@(blog.Author[0].Title)</strong>
-                        </p>
-                        @if (blog.Body != null)
-                        {
-                            @((MarkupString)blog.Body.Substring(0, 300))
-                            <a href=@blog.Url>
-                                <span>Read more --></span>
-                            </a>
-                        }
-                    </div>
+                    <p>
+                        @blog.Date.ToString("ddd, MMM d yyyy")
+                        ,
+
+                        <strong>@(blog.Author[0].Title)</strong>
+                    </p>
+                    @if (blog.Body != null)
+                    {
+                        @((MarkupString)Contentstack.Utils.Utils.JsonToHtml(blog.Body, options: new Contentstack.Utils.Models.Options()).Substring(0, 300))
+                        <a href=@blog.Url>
+                            <span>Read more --></span>
+                        </a>
+                    }
+                </div>
                 </div>
             }
         }

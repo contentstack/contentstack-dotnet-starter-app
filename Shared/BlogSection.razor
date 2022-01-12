@@ -22,21 +22,21 @@
                         <ImageComponent asset=@blogEntry.FeaturedImage className="blog-post-img" />
                     }
 
-                    <div class="featured-content">
-                        @if (blogEntry.Title != null)
-                        {
-                            <h3>@(blogEntry.Title)</h3>
-                        }
-                        @if (blogEntry.Body != null)
-                        {
-                            @((MarkupString)blogEntry.Body.Substring(0, 300))
-                        }
-                        @if (blogEntry.Url != null)
-                        {
-                            <a class="blogpost-readmore" href=@blogEntry.Url>Read More --></a>
-                        }
+                <div class="featured-content">
+                    @if (blogEntry.Title != null)
+                    {
+                        <h3>@(blogEntry.Title)</h3>
+                    }
+                    @if (blogEntry.Body != null)
+                    {
+                        @((MarkupString)Contentstack.Utils.Utils.JsonToHtml(blogEntry.Body, options: new Contentstack.Utils.Models.Options()).Substring(0, 300))
+                    }
+                    @if (blogEntry.Url != null)
+                    {
+                        <a class="blogpost-readmore" href=@blogEntry.Url>Read More --></a>
+                    }
 
-                    </div>
+                </div>
                 </div>
             }
         </div>

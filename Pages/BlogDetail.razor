@@ -19,10 +19,10 @@
             <p>
                 @(blog.Date.ToString("ddd, MMM d yyyy"))
                 ,
-                 
+
                 <strong>@(blog.Author[0].Title)</strong>
             </p>
-            @((MarkupString)blog.Body)
+            @((MarkupString)Contentstack.Utils.Utils.JsonToHtml(blog.Body, options: new Contentstack.Utils.Models.Options()))
         </div>
         <div class="blog-column-right">
             <div class="related-post">

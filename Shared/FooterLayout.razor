@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="copyright">
-            @((MarkupString)footer.Copyright)
+            @((MarkupString)Contentstack.Utils.Utils.JsonToHtml(footer.Copyright, options: new Contentstack.Utils.Models.Options()))
 
         </div>
     }

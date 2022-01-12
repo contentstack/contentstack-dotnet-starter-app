@@ -9,8 +9,7 @@
             }
             @if (section.Description != null)
             {
-                @((MarkupString)section.Description)
-
+                @((MarkupString)Contentstack.Utils.Utils.JsonToHtml(section.Description, options: new Contentstack.Utils.Models.Options()))
             }
         </div>
         <div class="contact-page-form">
@@ -37,8 +36,7 @@ else
             }
             @if (section.Description != null)
             {
-                @((MarkupString)section.Description)
-
+                @((MarkupString)Contentstack.Utils.Utils.JsonToHtml(section.Description, options: new Contentstack.Utils.Models.Options()))
             }
         </div>
     </div>
