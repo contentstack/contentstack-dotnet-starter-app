@@ -20,7 +20,7 @@ You can check the [live demo](http://contentstack-dotnet-starterapp.herokuapp.co
 
 We have created an in-depth tutorial on how you can create a Blazor starter website using Contentstack’s .Net SDK and fetch its content from Contentstack.
 
-[Build Website using .Net and Contentstack](https:/www.contentstack.com/docs/developers/sample-apps/build-a-starter-website-using-asp-net-blazor-and-contentstack-net-sdk/)
+[Build Website using .Net and Contentstack](https://www.contentstack.com/docs/developers/sample-apps/build-a-starter-website-using-asp-net-blazor-and-contentstack-net-sdk/)
 
 **More Resources**
 
