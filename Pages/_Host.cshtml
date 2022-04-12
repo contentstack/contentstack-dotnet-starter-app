@@ -14,6 +14,14 @@
     <link href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap"
           rel="stylesheet" />
     <title>contentstack-dotnet-starter-app</title>
+    <script src="https://unpkg.com/@@contentstack/live-preview-utils@1.0.0/dist/index.js"></script>
+    <script>ContentstackLivePreview.init({
+            enable: true,
+            ssr: true,
+            stackDetails: {
+                apiKey: "API_Key",
+            },
+        });</script>
     <base href="~/" />
     <link href="css/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/third-party.css" />

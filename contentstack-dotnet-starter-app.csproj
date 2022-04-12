@@ -8,11 +8,14 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'contentstack-dotnet-starter-app' " />
   <ItemGroup>
-    <PackageReference Include="contentstack.csharp" Version="2.6.2" />
     <PackageReference Include="contentstack.aspnetcore" Version="1.0.0" />
+    <PackageReference Include="contentstack.csharp" Version="2.8.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" /> 
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="contentstack.csharp" />
   </ItemGroup>
 </Project>
