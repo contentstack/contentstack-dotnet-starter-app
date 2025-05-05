@@ -1,4 +1,7 @@
 fileignoreconfig:
+- filename: .github/workflows/secrets-scan.yml
+  ignore_detectors:
+    - filecontent
 - filename: Pages/_Host.cshtml
   checksum: 51511fe434666b989e3ba1bf875594e31fc3c6cd887628221ea59b5ec4ce1f59
 - filename: Startup.cs
